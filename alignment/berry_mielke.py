@@ -3,13 +3,13 @@ from .helpers import validate_frequency_vector
 
 def berry_mielke(V: List[int]) -> float:
     """
-        From: Berry, K.J., Mielke, P.W.: Indices of ordinal variation (1992)
-        Args:
-            F(List[int]): Frequency vector
-        Returns:
-            float:
-        Raises:
-            Exception: Invalid frequency vector
+    From: Berry, K.J., Mielke, P.W.: Indices of ordinal variation (1992)
+    Args:
+        F(List[int]): Frequency vector
+    Returns:
+        float:
+    Raises:
+        Exception: Invalid frequency vector
     """
     validate_frequency_vector(V)
     N = sum(V)

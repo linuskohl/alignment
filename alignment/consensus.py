@@ -5,19 +5,19 @@ from typing import List
 
 
 def consensus(F: List[int]) -> float:
-    """ Calculate Tastle and Wierman’s measure of consensus
-        The function returns the measure of consensus.
-        The measure of consensus is based on the Shannon entropy.
-        Tastle, W., and M. Wierman. 2007. Consensus and dissention:
-        A measure of ordinal dispersion. International Journal of Approximate
-        Reasoning 45(3): 531-545.
-        Args:
-            F(List[int]): Frequency vector
-        Returns:
-            float: Consensus. 1 on perfect uniformity,
-                   0 on perfect bimodality (lack of agreement).
-        Raises:
-            Exception: Invalid frequency vector
+    """
+    Calculate Tastle and Wierman’s measure of consensus.
+    The measure of consensus is based on the Shannon entropy.
+    Tastle, W., and M. Wierman. 2007. Consensus and dissention:
+    A measure of ordinal dispersion. International Journal of Approximate
+    Reasoning 45(3): 531-545.
+    Args:
+        F(List[int]): Frequency vector
+    Returns:
+        float: Consensus. 1 on perfect uniformity,
+               0 on perfect bimodality (lack of agreement).
+    Raises:
+        Exception: Invalid frequency vector
     """
     validate_frequency_vector(F)
 
