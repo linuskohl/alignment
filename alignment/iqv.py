@@ -11,9 +11,8 @@ def iqv(V: List[int]) -> float:
     Returns:
         float: iqv
     """
-    k = len(V)
-    tot = sum(V)
-    perc = [(v / tot) * 100 for v in V]
-    result = (k * (100 ** 2 - sum([p ** 2 for p in perc])) / (100 ** 2 * (k - 1))) * 100
+    I = len(V)
+    n = sum(V)
+    iqv = (I/(I-1))*(1-sum((V[i]/n)**2 for i in range(0,I)))
 
-    return result
+    return iqv

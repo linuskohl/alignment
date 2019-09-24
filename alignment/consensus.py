@@ -1,6 +1,5 @@
 from math import log2
-from statistics import mean
-from .helpers import expand, validate_frequency_vector
+from .helpers import validate_frequency_vector
 from typing import List
 
 
@@ -22,13 +21,15 @@ def consensus(F: List[int]) -> float:
     validate_frequency_vector(F)
 
     # When all observations are the same, consensus is not defined but definition as 1
-    if max(F) == sum(F):
+
+    m = sum(F)
+    n = len(F)
+    X = range(1, n + 1)
+    if max(F) == m:
         return 1
-    s = sum(F)
-    P = [b / s for b in F]
-    pos = range(1, len(F) + 1)
-    mx = mean(expand(F))
-    dx = max(pos) - min(pos)
-    cns = 1 + sum([a * b for a, b in zip(P, [(log2(1 - abs(p - mx) / dx)) for p in pos])])
+    P = [x / m for x in F]
+    dX = max(X) - min(X)
+    mx = sum(P[i] * X[i] for i in range(0, n))
+    cns = 1 + sum(P[i] * log2(1 - (abs(X[i] - mx) / dX)) for i in range(0, n))
 
     return cns
